@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lashes by DanielleMG | Citas</title>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,600&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 
     :root {
       --color-bg: #ebe8e2;
@@ -17,8 +17,8 @@
       --color-line: #e4ddd3;
       --color-soft: #f3ece2;
       --color-cream: #fbf4ea;
-      --color-accent: #0d4a3d;
-      --color-accent-soft: #dfe9df;
+      --color-accent: #8f1f35;
+      --color-accent-soft: #f3dce2;
       --color-danger: #9b2f20;
       --shadow-card: 0 26px 70px rgba(29, 24, 18, 0.14);
       --shadow-soft: 0 16px 36px rgba(23, 20, 17, 0.1);
@@ -42,7 +42,7 @@
       min-height: 100vh;
       background:
         radial-gradient(circle at 15% 8%, rgba(255, 255, 255, 0.92) 0 12%, transparent 33%),
-        radial-gradient(circle at 86% 18%, rgba(13, 74, 61, 0.13) 0 9%, transparent 28%),
+        radial-gradient(circle at 86% 18%, rgba(143, 31, 53, 0.12) 0 9%, transparent 28%),
         linear-gradient(140deg, var(--color-bg-warm), var(--color-bg) 48%, #dedbd7);
       color: var(--color-text);
     }
@@ -60,7 +60,7 @@
     button:focus-visible,
     input:focus-visible,
     textarea:focus-visible {
-      outline: 3px solid rgba(13, 74, 61, 0.18);
+      outline: 3px solid rgba(143, 31, 53, 0.18);
       outline-offset: 3px;
     }
 
@@ -106,7 +106,7 @@
       position: absolute;
       right: -20px;
       bottom: -70px;
-      color: rgba(13, 74, 61, 0.09);
+      color: rgba(143, 31, 53, 0.08);
       font-family: "Cormorant Garamond", serif;
       font-size: 15rem;
       font-style: italic;
@@ -119,7 +119,7 @@
     }
 
     .brand::before {
-      content: "Book your beauty moment";
+      content: "Lash appointment studio";
       display: inline-block;
       margin-bottom: 16px;
       color: var(--color-accent);
@@ -132,39 +132,61 @@
     .brand h1 {
       margin: 0;
       color: var(--color-accent);
-      font-family: "Great Vibes", cursive;
-      font-size: clamp(3.4rem, 17vw, 5.8rem);
-      font-weight: 400;
-      line-height: 0.78;
-      letter-spacing: -0.035em;
+      max-width: 330px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.45rem, 12vw, 4.2rem);
+      font-style: italic;
+      font-weight: 700;
+      line-height: 0.92;
+      letter-spacing: -0.055em;
       text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
     }
 
     .brand p {
-      max-width: 260px;
-      margin: 24px 0 0;
+      max-width: 300px;
+      margin: 18px 0 0;
       color: var(--color-muted);
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.22rem;
-      font-style: italic;
-      line-height: 1.18;
+      font-size: 0.82rem;
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .business-card {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 22px;
+      background: rgba(255, 253, 248, 0.82);
+      box-shadow: 0 14px 34px rgba(29, 24, 18, 0.08);
     }
 
     .status-pill {
       position: relative;
       z-index: 1;
-      min-width: auto;
-      padding: 10px 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 8px 12px;
       border: 1px solid rgba(8, 8, 7, 0.08);
       border-radius: 999px;
-      background: var(--color-ink);
+      background: var(--color-accent);
       color: #fffdf8;
       text-align: center;
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 800;
       letter-spacing: 0.06em;
       white-space: nowrap;
-      box-shadow: 0 14px 32px rgba(8, 8, 7, 0.22);
+      box-shadow: 0 12px 26px rgba(143, 31, 53, 0.24);
+    }
+
+    .business-detail {
+      color: var(--color-muted);
+      font-size: 0.76rem;
+      font-weight: 700;
     }
 
     .step {
@@ -242,7 +264,7 @@
     .service-card:hover,
     .day-btn:hover,
     .slot-btn:hover {
-      border-color: rgba(13, 74, 61, 0.34);
+      border-color: rgba(143, 31, 53, 0.34);
       transform: translateY(-2px);
       box-shadow: 0 16px 28px rgba(29, 24, 18, 0.09);
     }
@@ -322,35 +344,33 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 9px;
-      padding: 16px;
-      border-radius: 28px;
-      background:
-        radial-gradient(circle at 100% 0, rgba(255, 255, 255, 0.18), transparent 32%),
-        var(--color-ink);
-      box-shadow: 0 22px 42px rgba(8, 8, 7, 0.2);
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
     }
 
     .slot-btn {
       min-height: 48px;
       padding: 10px;
       text-align: center;
-      border-color: rgba(255, 253, 248, 0.12);
-      background: rgba(255, 253, 248, 0.1);
-      color: #fffdf8;
+      border-color: rgba(8, 8, 7, 0.08);
+      background: var(--color-surface);
+      color: var(--color-text);
       font-size: 0.86rem;
       font-weight: 800;
     }
 
     .slot-btn:hover {
-      border-color: rgba(255, 253, 248, 0.42);
-      box-shadow: none;
+      border-color: rgba(143, 31, 53, 0.34);
+      box-shadow: 0 16px 28px rgba(29, 24, 18, 0.09);
     }
 
     .slot-btn.selected {
-      border-color: #fffdf8;
-      background: #fffdf8;
-      color: var(--color-ink);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+      border-color: var(--color-ink);
+      background: var(--color-ink);
+      color: #fffdf8;
+      box-shadow: 0 18px 36px rgba(8, 8, 7, 0.24);
     }
 
     .form-card {
@@ -428,11 +448,6 @@
       background: transparent;
     }
 
-    .slots-grid .empty-state,
-    .slots-grid .error-state {
-      color: rgba(255, 253, 248, 0.74);
-    }
-
     .error-state {
       color: var(--color-danger);
     }
@@ -450,7 +465,6 @@
 
     .cta-inner {
       width: min(430px, calc(100% - 28px));
-      min-height: 86px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -465,10 +479,15 @@
 
     .summary {
       min-width: 0;
+      padding: 10px 12px;
+      border: 1px solid rgba(8, 8, 7, 0.07);
+      border-radius: 18px;
+      background: #fff;
       color: var(--color-muted);
       font-size: 0.78rem;
       font-weight: 700;
       line-height: 1.4;
+      box-shadow: inset 0 -12px 24px rgba(8, 8, 7, 0.025);
     }
 
     .summary strong {
@@ -605,17 +624,23 @@
       }
 
       .header {
-        min-height: 260px;
+        min-height: 220px;
         padding: 34px 38px;
       }
 
       .brand h1 {
-        font-size: clamp(5rem, 11vw, 8.5rem);
+        max-width: 520px;
+        font-size: clamp(3.4rem, 7vw, 5.2rem);
       }
 
       .brand p {
-        max-width: 420px;
-        font-size: 1.42rem;
+        max-width: 440px;
+        font-size: 0.9rem;
+      }
+
+      .business-card {
+        grid-template-columns: auto 1fr 1fr;
+        align-items: center;
       }
 
       .services-grid {
@@ -641,10 +666,15 @@
     <header class="header">
       <div class="brand">
         <h1>Lashes by DanielleMG</h1>
-        <p>Agenda tu cita en pocos pasos y confirma los detalles por WhatsApp.</p>
+        <p>Especialistas en lashes y cejas. Atencion por cita, confirmacion directa por WhatsApp.</p>
       </div>
-      <div class="status-pill" id="statusPill">Cargando servicios</div>
     </header>
+
+    <div class="business-card" aria-label="Datos del negocio">
+      <div class="status-pill" id="statusPill">Cargando servicios</div>
+      <div class="business-detail">WhatsApp: +52 488 120 5036</div>
+      <div class="business-detail">Ubicacion: se comparte al confirmar</div>
+    </div>
 
     <section class="step" id="serviciosSection">
       <div class="step-head">
