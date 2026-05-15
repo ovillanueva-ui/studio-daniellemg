@@ -3,29 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Studio Cejas | Citas</title>
+  <title>Lashes by DanielleMG | Citas</title>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,600&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
     :root {
-      --color-bg: #f7f4ef;
-      --color-surface: #ffffff;
-      --color-text: #221f1c;
-      --color-muted: #776f67;
-      --color-line: #ddd4ca;
-      --color-accent: #8f4e3a;
-      --color-accent-strong: #6f3929;
-      --color-soft: #efe3dc;
-      --color-success: #246b4d;
-      --shadow: 0 18px 45px rgba(52, 39, 30, 0.12);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --color-bg: #ebe8e2;
+      --color-bg-warm: #f6efe5;
+      --color-surface: #fffdf8;
+      --color-ink: #080807;
+      --color-text: #171411;
+      --color-muted: #777069;
+      --color-line: #e4ddd3;
+      --color-soft: #f3ece2;
+      --color-cream: #fbf4ea;
+      --color-accent: #0d4a3d;
+      --color-accent-soft: #dfe9df;
+      --color-danger: #9b2f20;
+      --shadow-card: 0 26px 70px rgba(29, 24, 18, 0.14);
+      --shadow-soft: 0 16px 36px rgba(23, 20, 17, 0.1);
+      --radius-app: 34px;
+      --radius-card: 24px;
+      --radius-control: 18px;
+      font-family: "Plus Jakarta Sans", sans-serif;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      min-height: 100%;
+      background: var(--color-bg);
+    }
+
     body {
       margin: 0;
-      background: var(--color-bg);
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 8%, rgba(255, 255, 255, 0.92) 0 12%, transparent 33%),
+        radial-gradient(circle at 86% 18%, rgba(13, 74, 61, 0.13) 0 9%, transparent 28%),
+        linear-gradient(140deg, var(--color-bg-warm), var(--color-bg) 48%, #dedbd7);
       color: var(--color-text);
     }
 
@@ -39,49 +57,125 @@
       cursor: pointer;
     }
 
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid rgba(13, 74, 61, 0.18);
+      outline-offset: 3px;
+    }
+
     .app {
-      width: min(980px, calc(100% - 32px));
+      position: relative;
+      width: min(430px, calc(100% - 28px));
       margin: 0 auto;
-      padding: 32px 0 112px;
+      padding: 22px 0 128px;
+    }
+
+    .app::before {
+      content: "";
+      position: fixed;
+      inset: 18px auto 18px 50%;
+      width: min(430px, calc(100% - 28px));
+      transform: translateX(-50%);
+      border-radius: var(--radius-app);
+      background: rgba(255, 253, 248, 0.58);
+      box-shadow: var(--shadow-card);
+      pointer-events: none;
+      z-index: -1;
     }
 
     .header {
+      position: relative;
+      overflow: hidden;
       display: flex;
-      align-items: flex-end;
+      align-items: flex-start;
       justify-content: space-between;
-      gap: 20px;
-      padding: 20px 0 28px;
-      border-bottom: 1px solid var(--color-line);
+      gap: 18px;
+      min-height: 214px;
+      padding: 28px 24px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: var(--radius-app);
+      background:
+        linear-gradient(155deg, rgba(255, 253, 248, 0.98), rgba(244, 235, 224, 0.88)),
+        var(--color-surface);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .header::after {
+      content: "D";
+      position: absolute;
+      right: -20px;
+      bottom: -70px;
+      color: rgba(13, 74, 61, 0.09);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 15rem;
+      font-style: italic;
+      line-height: 1;
+    }
+
+    .brand {
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand::before {
+      content: "Book your beauty moment";
+      display: inline-block;
+      margin-bottom: 16px;
+      color: var(--color-accent);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
     }
 
     .brand h1 {
       margin: 0;
-      font-size: clamp(2rem, 5vw, 4.1rem);
-      line-height: 0.95;
-      letter-spacing: 0;
+      color: var(--color-accent);
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(3.4rem, 17vw, 5.8rem);
+      font-weight: 400;
+      line-height: 0.78;
+      letter-spacing: -0.035em;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
     }
 
     .brand p {
-      max-width: 520px;
-      margin: 14px 0 0;
+      max-width: 260px;
+      margin: 24px 0 0;
       color: var(--color-muted);
-      line-height: 1.6;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.22rem;
+      font-style: italic;
+      line-height: 1.18;
     }
 
     .status-pill {
-      min-width: 150px;
-      padding: 10px 14px;
-      border: 1px solid var(--color-line);
+      position: relative;
+      z-index: 1;
+      min-width: auto;
+      padding: 10px 13px;
+      border: 1px solid rgba(8, 8, 7, 0.08);
       border-radius: 999px;
-      background: var(--color-surface);
-      color: var(--color-muted);
+      background: var(--color-ink);
+      color: #fffdf8;
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
       white-space: nowrap;
+      box-shadow: 0 14px 32px rgba(8, 8, 7, 0.22);
     }
 
     .step {
-      margin-top: 30px;
+      margin-top: 16px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.86);
+      box-shadow: 0 18px 44px rgba(29, 24, 18, 0.08);
+      backdrop-filter: blur(14px);
+      animation: riseIn 420ms ease both;
     }
 
     .step-head {
@@ -89,129 +183,194 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .step-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin: 0;
-      font-size: 1.18rem;
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .step-title::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--color-accent);
+      box-shadow: 0 0 0 6px var(--color-accent-soft);
     }
 
     .step-note {
       margin: 0;
       color: var(--color-muted);
-      font-size: 0.94rem;
+      font-size: 0.76rem;
+      line-height: 1.35;
+      text-align: right;
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      grid-template-columns: 1fr;
       gap: 12px;
     }
 
     .service-card,
     .day-btn,
     .slot-btn {
-      border: 1px solid var(--color-line);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(8, 8, 7, 0.08);
       background: var(--color-surface);
       color: var(--color-text);
-      border-radius: 8px;
-      transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+      border-radius: var(--radius-control);
+      transition: border-color 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
     }
 
     .service-card {
-      min-height: 96px;
-      padding: 18px;
+      min-height: 92px;
+      padding: 18px 18px 18px 20px;
       text-align: left;
+      box-shadow: inset 0 -18px 32px rgba(8, 8, 7, 0.02);
     }
 
     .service-card:hover,
     .day-btn:hover,
     .slot-btn:hover {
-      border-color: var(--color-accent);
-      transform: translateY(-1px);
+      border-color: rgba(13, 74, 61, 0.34);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 28px rgba(29, 24, 18, 0.09);
     }
 
     .service-card.selected,
     .day-btn.selected,
     .slot-btn.selected {
-      border-color: var(--color-accent);
-      background: var(--color-soft);
+      border-color: var(--color-ink);
+      background: var(--color-ink);
+      color: #fffdf8;
+      box-shadow: 0 18px 36px rgba(8, 8, 7, 0.24);
     }
 
     .service-card h3 {
       margin: 0;
-      font-size: 1rem;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.3rem;
+      font-weight: 600;
       line-height: 1.35;
     }
 
     .service-card p {
-      margin: 10px 0 0;
+      margin: 8px 0 0;
       color: var(--color-muted);
-      font-size: 0.9rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
       line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    .service-card.selected p,
+    .day-btn.selected .day-name,
+    .slot-btn.selected {
+      color: rgba(255, 253, 248, 0.82);
     }
 
     .calendar-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 9px;
     }
 
     .day-btn {
-      min-height: 78px;
-      padding: 12px 8px;
+      min-height: 86px;
+      padding: 14px 8px;
       text-align: center;
     }
 
     .day-btn:disabled,
     .slot-btn:disabled {
       cursor: not-allowed;
-      opacity: 0.42;
+      opacity: 0.34;
       transform: none;
+      box-shadow: none;
     }
 
     .day-name {
       display: block;
       color: var(--color-muted);
-      font-size: 0.78rem;
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
     .day-num {
       display: block;
-      margin-top: 5px;
-      font-size: 1.25rem;
-      font-weight: 700;
+      margin-top: 7px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      line-height: 1;
     }
 
     .slots-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+      padding: 16px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 100% 0, rgba(255, 255, 255, 0.18), transparent 32%),
+        var(--color-ink);
+      box-shadow: 0 22px 42px rgba(8, 8, 7, 0.2);
     }
 
     .slot-btn {
-      min-height: 46px;
+      min-height: 48px;
       padding: 10px;
       text-align: center;
-      font-weight: 650;
+      border-color: rgba(255, 253, 248, 0.12);
+      background: rgba(255, 253, 248, 0.1);
+      color: #fffdf8;
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .slot-btn:hover {
+      border-color: rgba(255, 253, 248, 0.42);
+      box-shadow: none;
+    }
+
+    .slot-btn.selected {
+      border-color: #fffdf8;
+      background: #fffdf8;
+      color: var(--color-ink);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
     }
 
     .form-card {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      padding: 20px;
-      border: 1px solid var(--color-line);
-      border-radius: 8px;
+      gap: 12px;
+      padding: 6px;
+      border: 0;
+      border-radius: var(--radius-card);
       background: var(--color-surface);
-      box-shadow: var(--shadow);
+      box-shadow: none;
     }
 
     .field {
       display: grid;
       gap: 7px;
+      padding: 12px;
+      border: 1px solid rgba(8, 8, 7, 0.07);
+      border-radius: 20px;
+      background: #fff;
     }
 
     .field.full {
@@ -220,30 +379,38 @@
 
     label {
       color: var(--color-muted);
-      font-size: 0.88rem;
-      font-weight: 650;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     input,
     textarea {
       width: 100%;
-      border: 1px solid var(--color-line);
-      border-radius: 8px;
-      background: #fff;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
       color: var(--color-text);
-      padding: 12px 13px;
+      padding: 3px 0;
       outline: none;
+      font-size: 0.98rem;
+      font-weight: 700;
     }
 
     textarea {
-      min-height: 86px;
+      min-height: 70px;
       resize: vertical;
     }
 
     input:focus,
     textarea:focus {
-      border-color: var(--color-accent);
-      box-shadow: 0 0 0 3px rgba(143, 78, 58, 0.14);
+      box-shadow: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(119, 112, 105, 0.65);
     }
 
     .client-hint,
@@ -251,10 +418,23 @@
     .error-state {
       color: var(--color-muted);
       line-height: 1.5;
+      font-size: 0.88rem;
+    }
+
+    .client-hint.field {
+      margin: 0;
+      padding: 2px 4px;
+      border: 0;
+      background: transparent;
+    }
+
+    .slots-grid .empty-state,
+    .slots-grid .error-state {
+      color: rgba(255, 253, 248, 0.74);
     }
 
     .error-state {
-      color: #9b2f20;
+      color: var(--color-danger);
     }
 
     .cta-bar {
@@ -263,25 +443,32 @@
       bottom: 0;
       left: 0;
       z-index: 20;
-      border-top: 1px solid var(--color-line);
-      background: rgba(247, 244, 239, 0.92);
-      backdrop-filter: blur(10px);
+      padding: 12px 0 16px;
+      background: linear-gradient(180deg, rgba(235, 232, 226, 0), rgba(235, 232, 226, 0.94) 28%);
+      backdrop-filter: blur(12px);
     }
 
     .cta-inner {
-      width: min(980px, calc(100% - 32px));
-      min-height: 82px;
+      width: min(430px, calc(100% - 28px));
+      min-height: 86px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.76);
+      border-radius: 28px;
+      background: rgba(255, 253, 248, 0.92);
+      box-shadow: 0 18px 48px rgba(29, 24, 18, 0.18);
     }
 
     .summary {
       min-width: 0;
       color: var(--color-muted);
-      line-height: 1.45;
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.4;
     }
 
     .summary strong {
@@ -290,31 +477,37 @@
 
     .primary-btn,
     .secondary-btn {
-      min-height: 46px;
-      border-radius: 8px;
+      min-height: 52px;
+      border-radius: 18px;
       border: 1px solid transparent;
       padding: 0 18px;
-      font-weight: 750;
+      font-size: 0.85rem;
+      font-weight: 800;
       white-space: nowrap;
+      transition: transform 180ms ease, background 180ms ease, opacity 180ms ease;
     }
 
     .primary-btn {
-      background: var(--color-accent);
+      background: var(--color-ink);
       color: #fff;
+      box-shadow: 0 16px 28px rgba(8, 8, 7, 0.22);
     }
 
     .primary-btn:hover {
-      background: var(--color-accent-strong);
+      background: #1d1a17;
+      transform: translateY(-1px);
     }
 
     .primary-btn:disabled {
       cursor: not-allowed;
-      opacity: 0.55;
+      opacity: 0.42;
+      transform: none;
+      box-shadow: none;
     }
 
     .secondary-btn {
       background: #fff;
-      border-color: var(--color-line);
+      border-color: rgba(8, 8, 7, 0.1);
       color: var(--color-text);
     }
 
@@ -325,7 +518,8 @@
       display: none;
       place-items: center;
       padding: 20px;
-      background: rgba(34, 31, 28, 0.42);
+      background: rgba(8, 8, 7, 0.48);
+      backdrop-filter: blur(12px);
     }
 
     .modal.open {
@@ -335,14 +529,15 @@
     .modal-card {
       width: min(460px, 100%);
       padding: 24px;
-      border-radius: 8px;
-      background: #fff;
-      box-shadow: var(--shadow);
+      border-radius: 28px;
+      background: var(--color-surface);
+      box-shadow: var(--shadow-card);
     }
 
     .modal-card h2 {
       margin: 0 0 10px;
-      font-size: 1.35rem;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.65rem;
     }
 
     .modal-card p {
@@ -361,29 +556,82 @@
       display: none;
     }
 
+    @keyframes riseIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @media (max-width: 720px) {
-      .header,
       .step-head,
       .cta-inner {
         align-items: stretch;
         flex-direction: column;
       }
 
-      .status-pill {
-        width: 100%;
+      .header {
+        align-items: flex-start;
       }
 
       .form-card {
         grid-template-columns: 1fr;
       }
 
-      .primary-btn,
-      .secondary-btn {
+      .cta-inner .primary-btn,
+      .modal-actions .primary-btn,
+      .modal-actions .secondary-btn {
         width: 100%;
       }
 
       .modal-actions {
         flex-direction: column-reverse;
+      }
+    }
+
+    @media (min-width: 760px) {
+      .app {
+        width: min(960px, calc(100% - 64px));
+        padding-top: 38px;
+      }
+
+      .app::before {
+        width: min(960px, calc(100% - 64px));
+      }
+
+      .header {
+        min-height: 260px;
+        padding: 34px 38px;
+      }
+
+      .brand h1 {
+        font-size: clamp(5rem, 11vw, 8.5rem);
+      }
+
+      .brand p {
+        max-width: 420px;
+        font-size: 1.42rem;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .calendar-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+
+      .slots-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .cta-inner {
+        width: min(960px, calc(100% - 64px));
       }
     }
   </style>
@@ -392,8 +640,8 @@
   <main class="app">
     <header class="header">
       <div class="brand">
-        <h1>Studio Cejas</h1>
-        <p>Agenda tu cita y continua la confirmacion por WhatsApp.</p>
+        <h1>Lashes by DanielleMG</h1>
+        <p>Agenda tu cita en pocos pasos y confirma los detalles por WhatsApp.</p>
       </div>
       <div class="status-pill" id="statusPill">Cargando servicios</div>
     </header>
@@ -401,7 +649,7 @@
     <section class="step" id="serviciosSection">
       <div class="step-head">
         <h2 class="step-title">Servicio</h2>
-        <p class="step-note">Selecciona una opcion disponible.</p>
+        <p class="step-note">Elige el tratamiento que quieres reservar.</p>
       </div>
       <div class="services-grid" id="serviciosWrap"></div>
     </section>
@@ -417,7 +665,7 @@
     <section class="step hidden" id="slotsSection">
       <div class="step-head">
         <h2 class="step-title">Hora</h2>
-        <p class="step-note" id="slotsNote">Elige un horario disponible.</p>
+        <p class="step-note" id="slotsNote">Horarios disponibles segun tu servicio.</p>
       </div>
       <div class="slots-grid" id="slotsWrap"></div>
     </section>
@@ -425,20 +673,20 @@
     <section class="step hidden" id="formSection">
       <div class="step-head">
         <h2 class="step-title">Datos</h2>
-        <p class="step-note">Usaremos estos datos para tu solicitud.</p>
+        <p class="step-note">Solo lo necesario para preparar tu cita.</p>
       </div>
       <form class="form-card" id="citaForm">
         <div class="field">
           <label for="clientName">Nombre</label>
-          <input id="clientName" name="nombre" autocomplete="name" required>
+          <input id="clientName" name="nombre" autocomplete="name" placeholder="Tu nombre" required>
         </div>
         <div class="field">
           <label for="clientPhone">Telefono</label>
-          <input id="clientPhone" name="telefono" inputmode="tel" autocomplete="tel" required>
+          <input id="clientPhone" name="telefono" inputmode="tel" autocomplete="tel" placeholder="WhatsApp" required>
         </div>
         <div class="field full">
           <label for="clientNotes">Notas</label>
-          <textarea id="clientNotes" name="notas" placeholder="Opcional"></textarea>
+          <textarea id="clientNotes" name="notas" placeholder="Algo que debamos saber antes de tu cita"></textarea>
         </div>
         <p class="client-hint field full" id="clientHint"></p>
       </form>
@@ -566,11 +814,14 @@
       if (!state.servicioActivo || !state.fechaActiva || !state.slotActivo) {
         summaryText.textContent = "Selecciona servicio, fecha y hora.";
         sendBtn.disabled = true;
+        sendBtn.textContent = "Agendar por WhatsApp";
         return;
       }
 
       summaryText.innerHTML = `<strong>${state.servicioActivo.nombre}</strong> · ${fechaLegible(state.fechaActiva)} · ${horaLegible(state.slotActivo)}`;
-      sendBtn.disabled = false;
+      const hasClientData = Boolean(clientName.value.trim() && clientPhone.value.trim());
+      sendBtn.disabled = !hasClientData;
+      sendBtn.textContent = hasClientData ? "Agendar por WhatsApp" : "Completa tus datos";
     }
 
     async function cargarServicios() {
@@ -588,7 +839,7 @@
         serviciosWrap.innerHTML = state.servicios.map((servicio) => `
           <button class="service-card" type="button" data-id="${servicio.id}">
             <h3>${servicio.nombre}</h3>
-            <p>Disponible para agendar</p>
+            <p>Disponible para reservar</p>
           </button>
         `).join("");
         statusPill.textContent = "Agenda abierta";
@@ -861,7 +1112,10 @@
     $("#cancelConfirm").addEventListener("click", () => closeModal("#modalConfirm"));
     $("#confirmSend").addEventListener("click", confirmarEnvio);
     $("#closeSuccess").addEventListener("click", () => closeModal("#modalSuccess"));
-    clientPhone.addEventListener("input", buscarCliente);
+    clientPhone.addEventListener("input", () => {
+      buscarCliente();
+      updateSummary();
+    });
     clientName.addEventListener("input", updateSummary);
 
     cargarServicios();
