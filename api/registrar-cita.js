@@ -1,6 +1,7 @@
 const { airtableRequest, json, methodNotAllowed, tableName } = require("../lib/airtable");
 const {
   buildOcupados,
+  endTimeForDuration,
   getActiveServices,
   getBloqueosByFecha,
   getCitasByFecha,
@@ -57,6 +58,7 @@ module.exports = async function handler(req, res) {
     const ocupados = buildOcupados(citas, servicios);
     const blocked = isBlockedByRule(hora, selectedService.duracion, bloqueos);
     const conflicted = hasSlotConflict(hora, selectedService.duracion, ocupados);
+    const horaFin = endTimeForDuration(hora, selectedService.duracion);
 
     if (blocked || conflicted) {
       return json(res, 409, {
@@ -73,6 +75,7 @@ module.exports = async function handler(req, res) {
       Servicio: servicio,
       Fecha: fecha,
       Hora: hora,
+      "Hora fin": horaFin,
       Estatus: "Recibida",
     };
 
