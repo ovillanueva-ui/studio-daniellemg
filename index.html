@@ -409,7 +409,7 @@
     <section class="step hidden" id="calendarioSection">
       <div class="step-head">
         <h2 class="step-title">Fecha</h2>
-        <p class="step-note">Mostramos los proximos 14 dias.</p>
+        <p class="step-note">Mostramos disponibilidad de hoy y los proximos 5 dias.</p>
       </div>
       <div class="calendar-grid" id="calendarioWrap"></div>
     </section>
@@ -480,6 +480,7 @@
     const SLOTS_INTERVALO = 30;
     const SLOTS_ANTICIPACION = 60;
     const SLOTS_MAX_POR_SLOT = 1;
+    const DIAS_DISPONIBLES = 6;
 
     const state = {
       servicios: [],
@@ -553,7 +554,7 @@
     }
 
     function diasCalendario() {
-      return Array.from({ length: 14 }, (_, index) => {
+      return Array.from({ length: DIAS_DISPONIBLES }, (_, index) => {
         const date = new Date();
         date.setHours(0, 0, 0, 0);
         date.setDate(date.getDate() + index);
